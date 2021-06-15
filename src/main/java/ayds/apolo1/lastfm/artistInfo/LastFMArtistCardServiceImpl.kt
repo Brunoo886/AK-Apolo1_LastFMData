@@ -1,17 +1,17 @@
 package ayds.apolo1.lastfm.artistInfo
 
-import ayds.apolo1.lastfm.LastFMArtistInfoService
+import ayds.apolo1.lastfm.LastFMArtistCardService
 import ayds.apolo1.lastfm.entities.CardImpl
 import retrofit2.Response
 
-internal class LastFMArtistInfoServiceImpl(
+internal class LastFMArtistCardServiceImpl(
     private val LastFMAPI: LastFMAPI,
-    private val lastFmToArtistInfoResolver: LastFmToArtistInfoResolver,
-) : LastFMArtistInfoService {
+    private val lastFmToArtistCardResolver: LastFmToArtistCardResolver,
+) : LastFMArtistCardService {
 
-    override fun getArtistInfo(artistName: String): CardImpl? {
+    override fun getArtistCard(artistName: String): CardImpl? {
         val callResponse = getInfoFromService(artistName)
-        return lastFmToArtistInfoResolver.getArtistInfoFromExternalData(callResponse.body())
+        return lastFmToArtistCardResolver.getArtistCardFromExternalData(callResponse.body())
     }
 
     private fun getInfoFromService(query: String): Response<String> {
