@@ -1,8 +1,7 @@
-package ayds.apolo1.lastfm.lastFM.artistInfo
+package ayds.apolo1.lastfm.artistInfo
 
-import ayds.apolo.songinfo.moredetails.model.entities.CardImpl
 import ayds.apolo1.lastfm.LastFMArtistInfoService
-import ayds.apolo1.lastfm.artistInfo.LastFMAPI
+import ayds.apolo1.lastfm.entities.CardImpl
 import retrofit2.Response
 
 internal class LastFMArtistInfoServiceImpl(

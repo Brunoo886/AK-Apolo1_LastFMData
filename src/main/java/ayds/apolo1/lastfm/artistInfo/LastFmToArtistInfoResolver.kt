@@ -1,8 +1,8 @@
-package ayds.apolo1.lastfm.lastFM.artistInfo
+package ayds.apolo1.lastfm.artistInfo
 
 import android.util.Log
+import ayds.apolo1.lastfm.entities.CardImpl
 import com.google.gson.Gson
-import ayds.apolo.songinfo.moredetails.model.entities.CardImpl
 import com.google.gson.JsonObject
 
 interface LastFmToArtistInfoResolver {
@@ -35,14 +35,14 @@ internal class JsonToArtistInfoResolver() :
         return jobj[ARTISTS].asJsonObject
     }
 
-    private fun JsonObject.getArtistName(): String = this[ayds.apolo1.lastfm.lastFM.artistInfo.NAME].asString
+    private fun JsonObject.getArtistName(): String = this[NAME].asString
 
     private fun JsonObject.getInfoContent() =
-            this[ayds.apolo1.lastfm.lastFM.artistInfo.BIO]
-                .asJsonObject[ayds.apolo1.lastfm.lastFM.artistInfo.CONTENT]
+            this[BIO]
+                .asJsonObject[CONTENT]
                 .asString.replace("\\n", "\n")
 
 
-    private fun JsonObject.getFullArticleUrl() = this[ayds.apolo1.lastfm.lastFM.artistInfo.URL].asString
+    private fun JsonObject.getFullArticleUrl() = this[URL].asString
 
 }

@@ -1,10 +1,9 @@
 package ayds.apolo1.lastfm
 
-import ayds.apolo.songinfo.moredetails.model.repository.external.lastFM.artistInfo.*
 import ayds.apolo1.lastfm.artistInfo.LastFMAPI
-import ayds.apolo1.lastfm.lastFM.artistInfo.JsonToArtistInfoResolver
-import ayds.apolo1.lastfm.lastFM.artistInfo.LastFMArtistInfoServiceImpl
-import ayds.apolo1.lastfm.lastFM.artistInfo.LastFmToArtistInfoResolver
+import ayds.apolo1.lastfm.artistInfo.JsonToArtistInfoResolver
+import ayds.apolo1.lastfm.artistInfo.LastFMArtistInfoServiceImpl
+import ayds.apolo1.lastfm.artistInfo.LastFmToArtistInfoResolver
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
