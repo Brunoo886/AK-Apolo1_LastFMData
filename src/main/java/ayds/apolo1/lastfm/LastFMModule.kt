@@ -1,8 +1,9 @@
 package ayds.apolo1.lastfm
 
-import ayds.apolo1.lastfm.artistCard.*
 import ayds.apolo1.lastfm.artistCard.JsonToArtistCardResolver
+import ayds.apolo1.lastfm.artistCard.LastFMAPI
 import ayds.apolo1.lastfm.artistCard.LastFMArtistCardServiceImpl
+import ayds.apolo1.lastfm.artistCard.LastFMToArtistCardResolver
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 

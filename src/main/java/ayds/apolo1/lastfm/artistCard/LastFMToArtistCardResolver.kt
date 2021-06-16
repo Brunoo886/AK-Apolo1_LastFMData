@@ -16,7 +16,7 @@ private const val CONTENT = "content"
 private const val SOURCE_LOGO_URL =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
 
-internal class JsonToArtistCardResolver() :
+internal class JsonToArtistCardResolver :
     LastFMToArtistCardResolver {
 
     override fun getArtistCardFromExternalData(serviceData: String?): CardImpl? =
