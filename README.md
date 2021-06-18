@@ -10,7 +10,7 @@ With just an artist's name you can obtain a card with containing the info below:
 ## Usage
 To get a new card use the method ```'getArtistCard(artistname)'``` from class ```'LastFMArtistCardService'```.
 If the API finds a matching artist, a new card containing th info from said artist is retreived. If there is
-no artist with the required name, an empty card is returned instead.
+no artist with the required name, null is returned instead.
 
 ## Installation
 To add this library to your project, follow these steps:
