@@ -11,9 +11,3 @@ data class LastFMArtistInfo(
     override val infoUrl: String,
     override val sourceLogoUrl: String,
 ) : ArtistInfo
-
-object EmptyArtistInfo : ArtistInfo {
-    override val description: String = ""
-    override val infoUrl: String = ""
-    override val sourceLogoUrl: String = ""
-}
