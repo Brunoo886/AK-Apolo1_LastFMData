@@ -1,19 +1,19 @@
 package ayds.apolo1.lastfm.entities
 
 interface ArtistInfo {
-    val artist: String
-    val info: String
-    val url: String
+    val description: String
+    val infoUrl: String
+    val sourceLogoUrl: String
 }
 
 data class LastFMArtistInfo(
-    override val artist: String,
-    override val info: String,
-    override val url: String,
+    override val description: String,
+    override val infoUrl: String,
+    override val sourceLogoUrl: String,
 ) : ArtistInfo
 
 object EmptyArtistInfo : ArtistInfo {
-    override val artist: String = ""
-    override val info: String = ""
-    override val url: String = ""
+    override val description: String = ""
+    override val infoUrl: String = ""
+    override val sourceLogoUrl: String = ""
 }

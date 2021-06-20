@@ -1,12 +1,13 @@
 package ayds.apolo1.lastfm.artistCard
 
 import android.util.Log
-import ayds.apolo1.lastfm.entities.CardImpl
+import ayds.apolo1.lastfm.entities.ArtistInfo
+import ayds.apolo1.lastfm.entities.LastFMArtistInfo
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 
 interface LastFMToArtistCardResolver {
-    fun getArtistCardFromExternalData(serviceData: String?): CardImpl?
+    fun getArtistCardFromExternalData(serviceData: String?): ArtistInfo?
 }
 
 private const val ARTISTS = "artist"
@@ -19,14 +20,13 @@ private const val SOURCE_LOGO_URL =
 internal class JsonToArtistCardResolver :
     LastFMToArtistCardResolver {
 
-    override fun getArtistCardFromExternalData(serviceData: String?): CardImpl? =
+    override fun getArtistCardFromExternalData(serviceData: String?): ArtistInfo? =
         try {
             serviceData?.getFirstResult()?.let { item ->
-                CardImpl(
+                LastFMArtistInfo(
                     description = item.getInfoContent(),
                     infoUrl = item.getFullArticleUrl(),
                     sourceLogoUrl = SOURCE_LOGO_URL,
-                    source = 1
                 )
             }
         } catch (e: Exception) {
@@ -43,7 +43,6 @@ internal class JsonToArtistCardResolver :
         this[BIO]
             .asJsonObject[CONTENT]
             .asString.replace("\n", "\n")
-
 
     private fun JsonObject.getFullArticleUrl() = this[URL].asString
 
