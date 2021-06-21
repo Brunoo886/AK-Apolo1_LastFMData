@@ -1,16 +1,20 @@
 # Android library - Last FM
 A simple android library to fetch info from Last FM's API
 
-With just an artist's name you can obtain a card with containing the info below:
+With just an artist's name you can obtain an ArtistInfo object containing the info below:
 - A brief description of the artist provided
 - The URL of the artist's full article on Last FM's web page
 - The URL of Last FM's logo image
 - A field named 'source', indicating the source of the info, in this case Last FM
 
 ## Usage
-To get a new card use the method ```'getArtistCard(artistname)'``` from class ```'LastFMArtistCardService'```.
-If the API finds a matching artist, a new card containing th info from said artist is retreived. If there is
-no artist with the required name, null is returned instead.
+To get new info use the method ```'getArtistInfo(artistname)'``` from class ```'LastFMArtistInfoService'``` :
+- val artistInfoService = LastFMModule.lastFMArtistInfoService
+- artistInfoService.getArtistInfo(artistName)
+
+If the API finds a matching artist, the info from said artist is retreived as an ArtistInfo object.
+
+If there is no artist with the required name or no internet connection, null is returned instead.
 
 ## Installation
 To add this library to your project, follow these steps:
