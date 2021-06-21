@@ -7,7 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 
 /**
- * The interface of the info resolver
+ * The interface of an info resolver that converts the API's responses into ArtistInfo objects
  * @property ARTISTS the property of the API response containing the artist's info
  * @property URL the property of the artist JSON object containing the artist's full article URL
  * @property BIO the property of the artist JSON object containing the artist's bio
@@ -30,15 +30,9 @@ private const val CONTENT = "content"
 private const val SOURCE_LOGO_URL =
     "https://upload.wikimedia.org/wikispedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
 
-/**
- * An implementation for the info resolver
- */
 internal class JsonToArtistInfoResolver :
     LastFMToArtistInfoResolver {
 
-    /**
-     * Method implementation
-     */
     override fun getArtistInfoFromExternalData(serviceData: String?): ArtistInfo? =
         try {
             serviceData?.getFirstResult()?.let { item ->
@@ -53,28 +47,16 @@ internal class JsonToArtistInfoResolver :
             null
         }
 
-    /**
-     * A function to obtain the first Json object of the response
-     * @return the first result of a query
-     */
     private fun String?.getFirstResult(): JsonObject {
         val jobj = Gson().fromJson(this, JsonObject::class.java)
         return jobj[ARTISTS].asJsonObject
     }
 
-    /**
-     * A function to obtain the content of an artist Json object
-     * @return the content of an artist
-     */
     private fun JsonObject.getInfoContent() =
         this[BIO]
             .asJsonObject[CONTENT]
             .asString.replace("\n", "\n")
 
-    /**
-     * A function to obtain the url of the full article of an artist Json object
-     * @return the url of the full article of an artist
-     */
     private fun JsonObject.getFullArticleUrl() = this[URL].asString
 
 }
