@@ -1,4 +1,4 @@
-package ayds.apolo1.lastfm.artistCard
+package ayds.apolo1.lastfm.artistInfo
 
 import android.util.Log
 import ayds.apolo1.lastfm.entities.ArtistInfo
@@ -6,8 +6,8 @@ import ayds.apolo1.lastfm.entities.LastFMArtistInfo
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 
-interface LastFMToArtistCardResolver {
-    fun getArtistCardFromExternalData(serviceData: String?): ArtistInfo?
+interface LastFMToArtistInfoResolver {
+    fun getArtistInfoFromExternalData(serviceData: String?): ArtistInfo?
 }
 
 private const val ARTISTS = "artist"
@@ -15,12 +15,12 @@ private const val URL = "url"
 private const val BIO = "bio"
 private const val CONTENT = "content"
 private const val SOURCE_LOGO_URL =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
+    "https://upload.wikimedia.org/wikispedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
 
-internal class JsonToArtistCardResolver :
-    LastFMToArtistCardResolver {
+internal class JsonToArtistInfoResolver :
+    LastFMToArtistInfoResolver {
 
-    override fun getArtistCardFromExternalData(serviceData: String?): ArtistInfo? =
+    override fun getArtistInfoFromExternalData(serviceData: String?): ArtistInfo? =
         try {
             serviceData?.getFirstResult()?.let { item ->
                 LastFMArtistInfo(

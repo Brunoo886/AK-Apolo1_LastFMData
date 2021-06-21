@@ -1,4 +1,4 @@
-package ayds.apolo1.lastfm.artistCard;
+package ayds.apolo1.lastfm.artistInfo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

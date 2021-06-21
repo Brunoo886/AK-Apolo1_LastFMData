@@ -1,9 +1,9 @@
 package ayds.apolo1.lastfm
 
-import ayds.apolo1.lastfm.artistCard.JsonToArtistCardResolver
-import ayds.apolo1.lastfm.artistCard.LastFMAPI
-import ayds.apolo1.lastfm.artistCard.LastFMArtistInfoServiceImpl
-import ayds.apolo1.lastfm.artistCard.LastFMToArtistCardResolver
+import ayds.apolo1.lastfm.artistInfo.JsonToArtistInfoResolver
+import ayds.apolo1.lastfm.artistInfo.LastFMAPI
+import ayds.apolo1.lastfm.artistInfo.LastFMArtistInfoServiceImpl
+import ayds.apolo1.lastfm.artistInfo.LastFMToArtistInfoResolver
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
@@ -15,10 +15,10 @@ object LastFMModule {
         .addConverterFactory(ScalarsConverterFactory.create())
         .build()
     private val lastFMAPI = lastFmAPIRetrofit.create(LastFMAPI::class.java)
-    private val lastFMToArtistCardResolver: LastFMToArtistCardResolver = JsonToArtistCardResolver()
+    private val lastFMToArtistInfoResolver: LastFMToArtistInfoResolver = JsonToArtistInfoResolver()
 
     val lastFMArtistInfoService: LastFMArtistInfoService = LastFMArtistInfoServiceImpl(
         lastFMAPI,
-        lastFMToArtistCardResolver
+        lastFMToArtistInfoResolver
     )
 }
