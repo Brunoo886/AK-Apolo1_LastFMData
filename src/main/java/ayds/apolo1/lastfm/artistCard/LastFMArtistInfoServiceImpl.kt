@@ -9,7 +9,7 @@ internal class LastFMArtistInfoServiceImpl(
     private val lastFMToArtistCardResolver: LastFMToArtistCardResolver,
 ) : LastFMArtistInfoService {
 
-    override fun getArtistCard(artistName: String): ArtistInfo? {
+    override fun getArtistInfo(artistName: String): ArtistInfo? {
         val callResponse = getInfoFromService(artistName)
         return lastFMToArtistCardResolver.getArtistCardFromExternalData(callResponse.body())
     }
