@@ -28,7 +28,7 @@ private const val URL = "url"
 private const val BIO = "bio"
 private const val CONTENT = "content"
 private const val SOURCE_LOGO_URL =
-    "https://upload.wikimedia.org/wikispedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
 
 /**
  * An implementation for the info resolver
